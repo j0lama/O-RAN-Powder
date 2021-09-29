@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Redirect output to log file
-exec >> ${WORKINGDIR}/deploy.log
+exec >> /local/repository/deploy.log
 exec 2>&1
 
 echo "Starting RIC installation..."
