@@ -69,12 +69,13 @@ pc.defineParameter("Hardware", "Type of hardware",
 params = pc.bindParameters()
 pc.verifyParameters()
 
+rspec = PG.Request()
+
 
 netmask="255.255.255.0"
-oranlink = rspec.Link("s1-lan")
+oranlink = rspec.Link("oran-lan")
 
 # RIC Machine
-rspec = PG.Request()
 ric = rspec.RawPC("ric")
 ric.disk_image = 'urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD'
 ric.addService(PG.Execute(shell="sh", command="/usr/bin/sudo /local/repository/scripts/setup_ric.sh"))
