@@ -31,7 +31,7 @@ sed -i 's/kong-docker-kubernetes-ingress-controller.bintray.io\/kong-ingress-con
 cd dep/bin/
 sudo ./deploy-ric-platform -f ../RECIPE_EXAMPLE/PLATFORM/example_recipe.yaml
 # Fix Tiller
-KUBE_EDITOR="sed -i 's/gcr.io\/kubernetes-helm\/tiller:v2.12.3/ghcr.io\/helm\/tiller:v2.17.0/g'" kubectl edit deploy deployment-tiller-ricxapp -n ricinfra
+KUBE_EDITOR="sed -i 's/gcr.io\/kubernetes-helm\/tiller:v2.12.3/ghcr.io\/helm\/tiller:v2.17.0/g'" sudo -E kubectl edit deploy deployment-tiller-ricxapp -n ricinfra
 
 # Step 5
 cd ..
