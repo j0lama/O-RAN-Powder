@@ -71,7 +71,7 @@ pc.verifyParameters()
 
 
 netmask="255.255.255.0"
-oranlink = rspec.Link("oran-lan")
+oranlink = rspec.Link("s1-lan")
 
 # RIC Machine
 rspec = PG.Request()
