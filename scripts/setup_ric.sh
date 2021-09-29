@@ -1,11 +1,14 @@
 #!/bin/bash
 
+# Redirect output to log file
+exec >> ${WORKINGDIR}/deploy.log
+exec 2>&1
+
 echo "Starting RIC installation..."
 
 cd ~
 
 # Step 1
-sudo -i
 git clone http://gerrit.o-ran-sc.org/r/it/dep -b bronze
 cd dep/
 git submodule update --init --recursive --remote
@@ -14,19 +17,19 @@ git submodule update --init --recursive --remote
 cd tools/k8s/etc
 sed -i 's/2.12.3/2.17.0/g' infra.rc
 cd ../bin/
-c
+sudo ./gen-cloud-init.sh
 
 # Step 3
 mv k8s* k8s_install.sh
 sed -i 's/https:\/\/storage.googleapis.com\/kubernetes-helm\/helm-v/https:\/\/get.helm.sh\/helm-v/g' k8s_install.sh
 sed -i 's/4.15.0-45-lowlatency/$(uname -r)/g' k8s_install.sh
-./k8s_install.sh
+sudo ./k8s_install.sh
 
 # Step 4
 cd ~
 sed -i 's/kong-docker-kubernetes-ingress-controller.bintray.io\/kong-ingress-controller/kong\/kubernetes-ingress-controller/g' ~/dep/ric-dep/helm/infrastructure/subcharts/kong/values.yaml
 cd dep/bin/
-./deploy-ric-platform -f ../RECIPE_EXAMPLE/PLATFORM/example_recipe.yaml
+sudo ./deploy-ric-platform -f ../RECIPE_EXAMPLE/PLATFORM/example_recipe.yaml
 # Fix Tiller
 KUBE_EDITOR="sed -i 's/gcr.io\/kubernetes-helm\/tiller:v2.12.3/ghcr.io\/helm\/tiller:v2.17.0/g'" kubectl edit deploy deployment-tiller-ricxapp -n ricinfra
 
