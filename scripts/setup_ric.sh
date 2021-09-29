@@ -40,3 +40,5 @@ curl --location --request POST "http://$(hostname):32080/onboard/api/v1/onboard/
 
 # Step 6
 curl --location --request POST "http://$(hostname):32080/appmgr/ric/v1/xapps"  --header 'Content-Type: application/json'  --data-raw '{"xappName": "hwxapp"}'
+
+echo "RIC installation completed!"
