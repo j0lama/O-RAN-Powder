@@ -6,7 +6,7 @@ O-RAN deployment
 """
 kube_instruction= \
 """
-Not instructions yet
+Installation instructions: https://github.com/j0lama/O-RAN-Powder/blob/main/README.md
 """
 
 #
