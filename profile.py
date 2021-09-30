@@ -78,7 +78,7 @@ oranlink = rspec.Link("oran-lan")
 # RIC Machine
 ric = rspec.RawPC("ric")
 ric.disk_image = 'urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD'
-ric.addService(PG.Execute(shell="sh", command="/usr/bin/sudo /local/repository/scripts/setup_ric.sh"))
+#ric.addService(PG.Execute(shell="sh", command="/usr/bin/sudo /local/repository/scripts/setup_ric.sh"))
 ric.hardware_type = params.Hardware
 ric.Site('O-RAN')
 iface = ric.addInterface()
@@ -88,7 +88,7 @@ oranlink.addInterface(iface)
 # SMO Machine
 smo = rspec.RawPC("smo")
 smo.disk_image = 'urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD'
-smo.addService(PG.Execute(shell="sh", command="/usr/bin/sudo /local/repository/scripts/setup_smo.sh"))
+#smo.addService(PG.Execute(shell="sh", command="/usr/bin/sudo /local/repository/scripts/setup_smo.sh"))
 smo.hardware_type = params.Hardware
 smo.Site('O-RAN')
 iface = smo.addInterface()
