@@ -11,3 +11,8 @@ cd /local/repository/scripts/
 ```
 
 ## SMO Installation
+
+## Documentation Links
+* [Latest O-RAN SC projects](https://docs.o-ran-sc.org/en/latest/projects.html)
+* [O-RAN deployment - Getting Started Guides (Bronze)](https://wiki.o-ran-sc.org/display/GS/Getting+Started)
+* [All O-RAN SC repos](https://gerrit.o-ran-sc.org/r/admin/repos)
